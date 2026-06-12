@@ -4,6 +4,8 @@
 @import "@fontsource-variable/outfit";
 @import "@fontsource-variable/nunito-sans";
 @import "@fontsource-variable/roboto";
+@import "@fontsource/sedgwick-ave-display";
+@import "./poppins.css";
 
 @custom-variant dark (&:is(.dark *));
 @source "../../../apps/**/*.{ts,tsx}";
@@ -11,6 +13,8 @@
 @source "../**/*.{ts,tsx}";
 
 :root {
+    --background: oklch(1 0 0);
+    --foreground: oklch(0.148 0.004 228.8);
     --card: oklch(1 0 0);
     --card-foreground: oklch(0.148 0.004 228.8);
     --popover: oklch(1 0 0);
@@ -41,12 +45,13 @@
     --sidebar-accent-foreground: oklch(0.218 0.008 223.9);
     --sidebar-border: oklch(0.925 0.005 214.3);
     --sidebar-ring: oklch(0.723 0.014 214.4);
-    --background: oklch(1 0 0);
-    --foreground: oklch(0.148 0.004 228.8);
+
+    --pink: oklch(0.634 0.2619 352.92);
+    --blue: oklch(0.5712 0.1438 250.66);
 }
 
 .dark {
-    --background: oklch(0.148 0.004 228.8);
+    --background: oklch(0.148 0.004 228.8) /* oklch(0.1898 0.0352 222.38)*/;
     --foreground: oklch(0.987 0.002 197.1);
     --card: oklch(0.218 0.008 223.9);
     --card-foreground: oklch(0.987 0.002 197.1);
@@ -77,6 +82,9 @@
     --sidebar-accent-foreground: oklch(0.987 0.002 197.1);
     --sidebar-border: oklch(1 0 0 / 10%);
     --sidebar-ring: oklch(0.56 0.021 213.5);
+
+    --pink: oklch(0.7283 0.1971 351.99);
+    --blue: oklch(0.7319 0.1438 250.66);
 }
 
 @theme inline {
@@ -118,18 +126,77 @@
     --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
     --color-sidebar-border: var(--sidebar-border);
     --color-sidebar-ring: var(--sidebar-ring);
-    --font-sans: 'Outfit', sans-serif;
+    --font-sans: 'Poppins', 'Nunito Sans Variable', 'Outfit', sans-serif;
     --font-heading: 'Roboto Variable', sans-serif;
+    --font-sedgwick: 'Sedgwick Ave Display', sans-serif;
+
+    --color-pink-page: var(--pink);
+    --color-blue-page: var(--blue);
+    --color-light-pink-page: oklch(0.7283 0.1971 351.99);
 }
 
 @layer base {
-  * {
-    @apply border-border outline-ring/50;
+    * {
+        @apply border-border outline-ring/50;
     }
-  body {
-    @apply bg-background text-foreground;
+
+    body {
+        @apply bg-background text-foreground;
     }
-  button:not(:disabled), [role="button"]:not(:disabled) {
-    cursor: pointer;
+
+    button:not(:disabled), [role="button"]:not(:disabled) {
+        cursor: pointer;
+    }
+}
+
+.dark-section {
+    background-color: oklch(0.1898 0.0352 222.38);
+    color: oklch(0.8717 0.0186 218.4);
+
+    @theme inline {
+        --color-foreground: oklch(0.8717 0.0186 218.4);
+        --color-border: oklch(0.268 0.0374 222.01);
+        --color-pink: oklch(0.7283 0.1971 351.99);
+        --color-blue: oklch(0.7319 0.1438 250.66);
+        --color-muted-foreground: oklch(0.7071 0.0224 261.75);
+    }
+}
+
+.light-section {
+    background-color: oklch(0.985 0 0);
+    color: oklch(0.1898 0.0352 222.38);
+
+    @theme inline {
+        --color-border: oklch(0.9205 0.0146 244.73);
+        --color-pink: oklch(0.634 0.2619 352.9);
+        --color-blue: oklch(0.5712 0.1438 250.66);
+    }
+}
+
+.alt-section {
+    background-color: oklch(0.9681 0.0096 252.81);
+    color: oklch(0.4623 0.0248 223.47);
+
+     @theme inline {
+        --color-foreground: oklch(0.1898 0.0352 222.38);
+        --color-border: oklch(0.9205 0.0146 244.73);
+        --color-pink: oklch(0.634 0.2619 352.9);
+        --color-blue: oklch(0.5712 0.1438 250.66);
+    }
+}
+
+.hero-image {
+    filter: saturate(1.2) contrast(1.15);
+}
+
+.path {
+    stroke-dasharray: 3000;
+    stroke-dashoffset: 3000;
+    animation: draw 4s linear forwards;
+}
+
+@keyframes draw {
+    to {
+        stroke-dashoffset: 0;
     }
 }

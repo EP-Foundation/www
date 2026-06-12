@@ -1,0 +1,71 @@
+import React, { useEffect, useRef, useState } from "react"
+import { cn } from "@workspace/ui/lib/utils"
+
+export default function MaskedImage({
+  src,
+  className,
+  ...props
+}: {
+  src: string | undefined
+} & React.ComponentProps<"svg">) {
+  const pathRef = useRef(null)
+  const [length, setLength] = useState(0)
+
+  useEffect(() => {
+    if (pathRef.current) {
+      // @ts-ignore
+      setLength(pathRef.current.getTotalLength())
+    }
+  }, [])
+
+  return (
+    <svg
+      viewBox="0 0 717 856"
+      className={cn("h-auto w-200", className)}
+      xmlns="http://www.w3.org/2000/svg"
+      {...props}
+    >
+      <defs>
+        <filter id={`softEdge-${props.id}`}>
+          <feGaussianBlur stdDeviation="5" result="blur" />
+        </filter>
+
+        <mask id={`shapeMask-${props.id}`}>
+          <path
+            d={
+              "m477 856l-2-2 2-5-19 2-12-2-18-16-8-12-4 4-6-2-33-32-26-16-10-15 3-30-14-17-34-19-7-1-3-5-64-33-30-19-14-5-10-8-17-7-1-3-6-1-140-79-3-24 10-40-1-11-7-17 1-10 9-8 10-30 8-6 17-4 5-4 6-33 12-2 16-24 11-2 12-22-3-27-22-51-1-9-15-17-4-15-15-27 6-19-15-18-21-10-10-18 3-24 7-12 15-6 11-13 16-11 16-6 4-9 6-4h9l9 4 43 2 6 10 1 14h24l9 4 8 6-3 12 13-3 59 1 18 15 5 8 18 3 33 18 4-1 26 30 16 7 37 6h22l21-6 45-2 28-37 34-7 18-9 9-10 14-3 14 3 17 20 17 10h54v5l-12 20-5 17-16 32-21 18-23 6-3 308 12 21 7 28 18 18 18 7v13l-13 25-11 10h-22l-3 8h-3l-1 5h-3l-25 29-2 6-6 4h-20l-11 7-4 24-4 5 2 19-2 5-7 11-14 10-7 24-8 13-15 12-3 7-1 27-10 9-19 8z"
+            }
+            fill={"#FAFAFAFF"}
+            filter={`url(#softEdge-${props.id})`}
+            transform={"scale(0.98) translate(5, 10)"}
+          />
+        </mask>
+      </defs>
+
+      <image
+        href={src}
+        width="717"
+        height="856"
+        preserveAspectRatio="xMidYMid slice"
+        mask={`url(#shapeMask-${props.id})`}
+      />
+
+      <path
+        id="Path 0"
+        ref={pathRef}
+        className="kenya-map-outline opacity-100"
+        style={{
+          strokeDasharray: `150 ${length - 150}`,
+          strokeDashoffset: length,
+          animation: length ? "draw 10s linear infinite" : "none",
+        }}
+        d="m477 856l-2-2 2-5-19 2-12-2-18-16-8-12-4 4-6-2-33-32-26-16-10-15 3-30-14-17-34-19-7-1-3-5-64-33-30-19-14-5-10-8-17-7-1-3-6-1-140-79-3-24 10-40-1-11-7-17 1-10 9-8 10-30 8-6 17-4 5-4 6-33 12-2 16-24 11-2 12-22-3-27-22-51-1-9-15-17-4-15-15-27 6-19-15-18-21-10-10-18 3-24 7-12 15-6 11-13 16-11 16-6 4-9 6-4h9l9 4 43 2 6 10 1 14h24l9 4 8 6-3 12 13-3 59 1 18 15 5 8 18 3 33 18 4-1 26 30 16 7 37 6h22l21-6 45-2 28-37 34-7 18-9 9-10 14-3 14 3 17 20 17 10h54v5l-12 20-5 17-16 32-21 18-23 6-3 308 12 21 7 28 18 18 18 7v13l-13 25-11 10h-22l-3 8h-3l-1 5h-3l-25 29-2 6-6 4h-20l-11 7-4 24-4 5 2 19-2 5-7 11-14 10-7 24-8 13-15 12-3 7-1 27-10 9-19 8z"
+      />
+      <path
+        id="Path 1"
+        className="kenya-map-outline-glow opacity-100"
+        d="m477 856l-2-2 2-5-19 2-12-2-18-16-8-12-4 4-6-2-33-32-26-16-10-15 3-30-14-17-34-19-7-1-3-5-64-33-30-19-14-5-10-8-17-7-1-3-6-1-140-79-3-24 10-40-1-11-7-17 1-10 9-8 10-30 8-6 17-4 5-4 6-33 12-2 16-24 11-2 12-22-3-27-22-51-1-9-15-17-4-15-15-27 6-19-15-18-21-10-10-18 3-24 7-12 15-6 11-13 16-11 16-6 4-9 6-4h9l9 4 43 2 6 10 1 14h24l9 4 8 6-3 12 13-3 59 1 18 15 5 8 18 3 33 18 4-1 26 30 16 7 37 6h22l21-6 45-2 28-37 34-7 18-9 9-10 14-3 14 3 17 20 17 10h54v5l-12 20-5 17-16 32-21 18-23 6-3 308 12 21 7 28 18 18 18 7v13l-13 25-11 10h-22l-3 8h-3l-1 5h-3l-25 29-2 6-6 4h-20l-11 7-4 24-4 5 2 19-2 5-7 11-14 10-7 24-8 13-15 12-3 7-1 27-10 9-19 8z"
+      />
+    </svg>
+  )
+}
