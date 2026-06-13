@@ -50,3 +50,37 @@
         opacity: 1
     }
 }
+
+@media(max-height: 800px) {
+    .get-involved-btn{
+        display:none
+    }
+
+    .hero-height{
+        min-height: 80vh;
+    }
+}
+
+@media(min-height: 801px) {
+    .get-involved-btn{
+        display:flex
+    }
+
+    .hero-height{
+        min-height: 80vh;
+    }
+}
+
+@media(min-height: 900px) {
+    .hero-height{
+        min-height: 900px;
+        max-height: 80vh;
+    }
+}
+
+@media(min-height: 1080px) {
+    .hero-height{
+        min-height: 900px;
+        max-height: 1080px;
+    }
+}

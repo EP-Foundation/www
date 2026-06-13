@@ -25,7 +25,7 @@ export default function Home() {
 
   return (
     <div className="min-h-svh">
-      <Hero id={"hero"} className={"bg-green-500"} />
+      <Hero id={"hero"} className={""} />
 
       {/* Shown only when the user scrolls past the hero section */}
       <Navbar

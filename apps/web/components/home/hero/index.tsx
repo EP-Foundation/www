@@ -12,12 +12,9 @@ export default function Hero({
   ...props
 }: React.ComponentProps<"div">) {
   return (
-    <>
+    <div className={"light-section relative hero-height"}>
       <section
-        className={cn(
-          "light-section relative mx-auto h-svh max-w-480 md:max-h-212.5 lg:px-10 xl:max-h-270",
-          className
-        )}
+        className={cn("relative mx-auto max-w-480 lg:px-10", className)}
         {...props}
       >
         <Navbar className={"relative z-50 backdrop-blur-none"} />
@@ -31,7 +28,7 @@ export default function Hero({
               Emmanuel Pad Foundation
             </p>
             <div className={"2xl:ps-5"}>
-              <h1 className="mb-8 font-sedgwick text-5xl sm:text-6xl leading-18 md:mb-5 lg:leading-28 2xl:text-[90px]">
+              <h1 className="mb-8 font-sedgwick text-5xl leading-18 sm:text-6xl md:mb-5 lg:leading-28 2xl:text-[90px]">
                 <span className={"text-pink"}>Empowering Girls </span>
                 <br className={"hidden 2xl:inline-block"} />
                 Through <span className={"text-blue"}>Dignity</span>{" "}
@@ -40,21 +37,21 @@ export default function Hero({
                 <span className={"text-blue"}>Care</span>
               </h1>
 
-              <p className="font-sans text-sm leading-loose font-light md:max-w-150 md:text-base md:leading-normal xl:max-w-175">
+              <p className="font-sans text-sm leading-normal font-light md:max-w-150 md:text-base md:leading-normal xl:max-w-175">
                 To empower girls and young women through the provision of
                 menstrual hygiene products, education, and community support
                 programs that promote dignity, health, and equal opportunities.
               </p>
 
               <div className="mt-10 flex flex-col flex-wrap gap-4 md:flex-row 2xl:mt-10">
-                <GetInvolved />
+                <GetInvolved className={"get-involved-btn"} />
                 <Donate text={"Donate Now"} />
               </div>
 
-              <div className="my-5 flex flex-wrap gap-2 sm:gap-5 pt-4 md:my-10 md:gap-12 2xl:my-10 2xl:gap-20">
+              <div className="mt-5 flex flex-wrap gap-2 pt-4 sm:my-5 sm:gap-5 md:my-10 md:gap-12 2xl:my-10 2xl:gap-20">
                 {stats.map(({ value, label }) => (
                   <div key={label} className="flex flex-col font-sans">
-                    <span className="font-heading text-2xl sm:text-3xl font-semibold text-pink md:text-4xl 2xl:text-5xl">
+                    <span className="font-heading text-2xl font-semibold text-pink sm:text-3xl md:text-4xl 2xl:text-5xl">
                       {value}
                     </span>
                     <span className="mt-1 text-[10px] font-light tracking-widest uppercase md:text-xs 2xl:text-sm">
@@ -102,7 +99,7 @@ export default function Hero({
           />
         </div>
       </section>
-    </>
+    </div>
   )
 }
 
