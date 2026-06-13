@@ -1,5 +1,5 @@
 import { ExternalLink, HandHeart, Handshake, Phone } from "lucide-react"
-import React from "react"
+import React, { type JSX } from "react"
 import { cn } from "@workspace/ui/lib/utils"
 
 export function GetInvolved({
@@ -42,9 +42,14 @@ export function Donate({
 }
 
 export function LearnMore({
+  text,
+  icon,
   className,
   ...props
-}: React.ComponentProps<"button">) {
+}: {
+  text?: string
+  icon?: (className: React.ComponentProps<"div">["className"]) => JSX.Element
+} & React.ComponentProps<"button">) {
   return (
     <>
       <button
@@ -55,8 +60,12 @@ export function LearnMore({
         {...props}
       >
         <span className="absolute inset-0 -z-10 origin-left scale-x-0 rounded-lg bg-pink transition-transform duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover/learn-more:scale-x-101" />
-        Learn More
-        <ExternalLink className={"size-4 transition-all duration-500"} />
+        {text ? text : "Learn More"}
+        {icon ? (
+          icon("size-4 transition-all duration-500")
+        ) : (
+          <ExternalLink className={"size-4 transition-all duration-500"} />
+        )}
       </button>
     </>
   )
@@ -69,7 +78,7 @@ export function Contactus({
   return (
     <button
       className={cn(
-        "group/contact-us relative isolate inline-flex items-center justify-center gap-2 overflow-hidden rounded-lg border-2 border-white px-7 py-3 font-medium tracking-widest text-white uppercase hover:border-blue transition-all duration-500",
+        "group/contact-us relative isolate inline-flex items-center justify-center gap-2 overflow-hidden rounded-lg border-2 border-white px-7 py-3 font-medium tracking-widest text-white uppercase transition-all duration-500 hover:border-blue",
         className
       )}
       {...props}

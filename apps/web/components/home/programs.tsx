@@ -30,7 +30,7 @@ export default function OurPrograms() {
                   "translateY(0)"
               }}
             >
-              <div className="relative min-h-[340px] shrink-0 overflow-hidden lg:w-[42%]">
+              <div className="relative min-h-85 shrink-0 overflow-hidden lg:w-[42%]">
                 <img
                   src={image}
                   alt={title}
@@ -45,12 +45,17 @@ export default function OurPrograms() {
                 <p className="mb-2 hidden text-[10px] font-semibold tracking-[3px] lg:block">
                   {tagline}
                 </p>
-                <h3 className="mb-3 text-xl leading-snug font-semibold text-light-pink-page uppercase">
+                <h3 className="mt-2 mb-2 text-xl leading-snug font-semibold text-light-pink-page uppercase md:mb-0 lg:mt-0">
                   {title}
                 </h3>
-                <div className="mb-6 h-[3px] w-10" />
-                <p className="mb-10 text-sm leading-[1.9]">{description}</p>
-                <LearnMore />
+                <p className="mb-5 text-sm leading-[1.9] lg:mt-6 lg:mb-7">
+                  {description}
+                </p>
+                <LearnMore
+                  className={
+                    "justify-start border-0 px-0 text-blue transition-all duration-500 hover:px-3 lg:w-fit"
+                  }
+                />
               </div>
             </div>
           ))}

@@ -1,7 +1,8 @@
 import SectionHeader from "../section"
 import CalendarIcon from "../../public/calendar icon.jpeg"
 import { LearnMore } from "../buttons"
-import { Clock, MapPin } from "lucide-react"
+import { Clock, HeartHandshake, MapPin } from "lucide-react"
+import React from "react"
 
 export default function Events() {
   return (
@@ -9,7 +10,7 @@ export default function Events() {
       <div className="mx-auto max-w-7xl px-5 md:px-12">
         <SectionHeader eyebrow="Upcoming" heading="Events" />
 
-        <div className="grid gap-8 sm:grid-cols-2">
+        <div className="grid gap-10 sm:grid-cols-2">
           {events.map(
             ({ month, day, title, time, location, description }, i) => (
               <div
@@ -54,9 +55,12 @@ export default function Events() {
                   </div>
                 </div>
 
-
                 <div className={"flex flex-1 flex-col p-4 md:p-9"}>
-                  <p className={"mb-4 text-sm 2xl:text-base leading-snug font-semibold"}>
+                  <p
+                    className={
+                      "mb-4 text-sm leading-snug font-semibold 2xl:text-base"
+                    }
+                  >
                     {title}
                   </p>
                   <div
@@ -71,10 +75,18 @@ export default function Events() {
                       <MapPin className={"size-4.5 stroke-blue"} /> {location}
                     </span>
                   </div>
-                  <p className="mb-8 flex-1 text-sm leading-relaxed">
+                  <p className="mb-5 flex-1 text-sm leading-relaxed md:mb-8">
                     {description}
                   </p>
-                  <LearnMore />
+                  <LearnMore
+                    text={"Join The Journey"}
+                    icon={(
+                      className: React.ComponentProps<"div">["className"]
+                    ) => <HeartHandshake className={className} />}
+                    className={
+                      "border-0 px-0 text-pink transition-all duration-800 hover:px-3"
+                    }
+                  />
                 </div>
               </div>
             )

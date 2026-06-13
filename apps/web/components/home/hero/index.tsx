@@ -31,7 +31,7 @@ export default function Hero({
               Emmanuel Pad Foundation
             </p>
             <div className={"2xl:ps-5"}>
-              <h1 className="mb-8 font-sedgwick text-6xl leading-18 md:mb-5 lg:leading-28 2xl:text-[90px]">
+              <h1 className="mb-8 font-sedgwick text-5xl sm:text-6xl leading-18 md:mb-5 lg:leading-28 2xl:text-[90px]">
                 <span className={"text-pink"}>Empowering Girls </span>
                 <br className={"hidden 2xl:inline-block"} />
                 Through <span className={"text-blue"}>Dignity</span>{" "}
@@ -51,11 +51,10 @@ export default function Hero({
                 <Donate text={"Donate Now"} />
               </div>
 
-              {/* Stats */}
-              <div className="my-5 flex flex-wrap gap-5 pt-4 md:my-10 md:gap-12 2xl:my-10 2xl:gap-20">
+              <div className="my-5 flex flex-wrap gap-2 sm:gap-5 pt-4 md:my-10 md:gap-12 2xl:my-10 2xl:gap-20">
                 {stats.map(({ value, label }) => (
                   <div key={label} className="flex flex-col font-sans">
-                    <span className="font-heading text-3xl font-semibold text-pink md:text-4xl 2xl:text-5xl">
+                    <span className="font-heading text-2xl sm:text-3xl font-semibold text-pink md:text-4xl 2xl:text-5xl">
                       {value}
                     </span>
                     <span className="mt-1 text-[10px] font-light tracking-widest uppercase md:text-xs 2xl:text-sm">
