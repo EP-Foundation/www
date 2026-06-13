@@ -163,15 +163,6 @@ const socials = [
   },
 ]
 
-const navLinks = [
-  "Home",
-  "About",
-  "Programs",
-  "Impact",
-  "Get Involved",
-  "Contact",
-]
-
 const links = [
   {
     name: "Home",
@@ -195,6 +186,6 @@ const links = [
   },
   {
     name: "About",
-    path: "#",
+    path: "/about-us",
   },
 ]

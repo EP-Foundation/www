@@ -33,14 +33,14 @@ export default function CommunityVoices() {
             >
               <span
                 className={cn(
-                  "mb-3 md:mb-6 font-serif text-5xl leading-none select-none",
+                  "mb-3 font-serif text-5xl leading-none select-none md:mb-6",
                   index % 2 == 0 ? "text-pink" : "text-blue"
                 )}
               >
                 "
               </span>
 
-              <p className="mb-4 md:mb-8 flex-1 font-['Poppins',sans-serif] text-sm leading-[1.95]">
+              <p className="mb-4 flex-1 text-sm leading-[1.95] md:mb-8">
                 {quote}
               </p>
 
@@ -56,12 +56,8 @@ export default function CommunityVoices() {
                   />
                 </div>
                 <div>
-                  <p className="font-['Poppins',sans-serif] text-xs font-semibold">
-                    {name}
-                  </p>
-                  <p className="font-['Poppins',sans-serif] text-[10px]">
-                    {role}
-                  </p>
+                  <p className="text-xs font-semibold">{name}</p>
+                  <p className="text-[10px]">{role}</p>
                 </div>
               </div>
             </div>

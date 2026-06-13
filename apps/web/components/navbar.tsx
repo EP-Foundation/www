@@ -47,7 +47,7 @@ export default function Navbar({
 const links = [
   {
     name: "Home",
-    path: "#",
+    path: "/",
   },
   {
     name: "Programs",
@@ -67,7 +67,7 @@ const links = [
   },
   {
     name: "About",
-    path: "#",
+    path: "/about-us",
   },
 ]
 
@@ -92,7 +92,7 @@ function NAvLink({
         }
         preventScrollReset
       >
-        <span className="font-sans text-[13px] font-medium tracking-wider uppercase underline-offset-4 transition-all duration-500 hover:text-primary hover:underline">
+        <span className="font-sans text-[12px] font-normal tracking-wider uppercase underline-offset-4 transition-all duration-500 hover:text-primary hover:underline">
           {name}
         </span>
       </NavLink>
