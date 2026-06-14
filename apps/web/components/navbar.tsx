@@ -106,12 +106,17 @@ function SheetNavbar() {
   return (
     <Sheet open={isOpen} onOpenChange={setIsOpen}>
       <SheetTrigger asChild>
-        <Menu size="24" className={"fill-foregrund"} />
+        <Menu size="24" className={"fill-foreground"} />
       </SheetTrigger>
       <SheetContent
         side="top"
-        className="flex flex-col items-start gap-4 border-0 bg-transparent py-7 backdrop-blur-lg"
+        className="flex flex-col items-start gap-4 border-0 border-transparent py-7 bg-background/50 backdrop-blur-none"
       >
+         <div
+        className={
+          "absolute right-0 bottom-0 left-0 h-0.5 bg-linear-to-r from-pink-page to-blue-page"
+        }
+      />
         {links.map((link) => (
           <Button
             variant="link"
